@@ -20,9 +20,12 @@ const App = (props) => {
       <Button method={increaseNeutral} text="Neutral" />
       <Button method={increaseBad} text="Bad" />
       <h1>Statistics</h1>
-      <span>Good</span> <Display counter={good}/>
-      <p>neutral</p> <Display counter={neutral}/>
-      <p>bad</p> <Display counter={bad}/>
+      <Display counter={`Good ${good}`}/>
+      <Display counter={`Neutral ${neutral}`}/>
+      <Display counter={`Bad ${bad}`}/>
+
+      <span><Display counter={`Average ${(good - bad) / (good + bad + neutral)}`}/></span>
+      <span><Display counter={`Positive ${(good / (good + neutral + bad)) * 100}%`}/></span>
     </div>
   );
 }
